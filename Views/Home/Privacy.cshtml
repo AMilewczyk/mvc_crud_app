@@ -1,6 +1,22 @@
-﻿@{
+﻿@model List<Cat>
+
+
+
+@{
     ViewData["Title"] = "Privacy Policy";
+    var curentYear = DateTime.Now.Year;
+    var dayofWeek = DateTime.Now.DayOfWeek;
+    string email = "merito@wsb.com";
+
 }
+
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+
+<p>It is @curentYear</p>
+
+
+
+<a href="mailto:@email">@email</a>

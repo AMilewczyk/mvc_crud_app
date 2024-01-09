@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Xml.Linq;
 using Microsoft.AspNetCore.Mvc;
 using mvc_crud_app.Models;
 
@@ -20,10 +21,38 @@ public class HomeController : Controller
 
     public IActionResult Privacy()
     {
-        return View();
+        var model = new List<Cat>()
+        { 
+            new Cat()
+            {
+                CatName = "felix",
+                CatRace = "pers"
+            },
+            new Cat()
+            {
+                CatName = "Filo",
+                CatRace = "bengalski"
+
+            },
+
+        };
+
+        return View(model);
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult About()
+    {
+        var model = new About()
+        {
+            Title = "CatStore",
+            Description = "CrudCat",
+            Tags = new List<string>() { "simple", "crud", "app" }
+        };
+
+        return View(model);
+    }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
