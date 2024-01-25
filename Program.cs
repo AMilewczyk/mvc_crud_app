@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using MvcCrudApp.Infrastructure.Persistence;
 using MvcCrudApp.Infrastructure.Extensions;
 using MvcCrudApp.Infrastructure.Seeders;
+using MvcCrudApp.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddInfrastructure(builder.Configuration);
-
+builder.Services.AddApplication();
 
 var app = builder.Build();
 
